@@ -1,0 +1,9 @@
+All devices
+<hr>
+ <p>
+  <% if !@devices.blank? %>
+   <% for item in @devices %>
+    <%= item.id %>
+   <% end %>
+<% else %>
+<% end %>

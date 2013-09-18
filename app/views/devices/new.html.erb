@@ -1,0 +1,9 @@
+Enter new device
+<hr>
+<%= simple_form_for @device do |f| -%>
+   <%= f.input :code, :label => 'IMEI:', required: true,:as => :numeric %> <br />
+   <%= f.input :status,  required: true, collection: 0..1 %>
+   <%= f.input :comment, required: false %><br />
+<%= f.submit -%>
+<% end %>
+
