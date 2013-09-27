@@ -4,7 +4,7 @@ Enter new device
 
 <%= simple_form_for @device do |f| -%>
    <%= f.input :code, required: true, :as => :numeric, :label => 'IMEI:' %> <br />
-   <%= f.input :comment, :hint => "just letters and numbers please." %><br />
+   <%= f.input :comment, hint: => "password unlock", required: false %><br />
    <%= f.hidden_field :status, :value => "1" %>
    <%= f.submit -%>
    <% end %>

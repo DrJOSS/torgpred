@@ -2,7 +2,18 @@ class DevicesController < ApplicationController
   
   def index 
    @devices = Device.all
+   @agents  = Agent.all
   end 
+  
+  def show
+  @device = Device.find(params[:id]) 
+  @agent = Agent.find(params[:id])
+  render :action => :show 
+  end
+  
+  def find_device
+   @device = Device.find(@agent.device_id)
+  end  
  
   def new 
     @device = Device.new
@@ -11,8 +22,8 @@ class DevicesController < ApplicationController
   def create 
     @device = Device.new(params[:device])
     if @device.save
-     flash[:notice] = "Successfully created device."
-     redirect_to @device 
+    flash[:notice] = "Successfully created device."
+   redirect_to @device
     else 
      render :action => 'new'
   end
@@ -39,4 +50,6 @@ class DevicesController < ApplicationController
     redirect_to devices_url
   end
 
+  
+   
 end

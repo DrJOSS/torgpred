@@ -1,9 +1,7 @@
-All devices
-<hr>
- <p>
-  <% if !@devices.blank? %>
-   <% for item in @devices %>
-    <%= item.id %>
-   <% end %>
-<% else %>
+<% provide(:title, 'Home') %>
+<h1>All devices</h1>
+
+  
+<% @agents.each do |f| -%>
+<%= f.key %>
 <% end %>
